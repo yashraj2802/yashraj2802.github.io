@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corona Tracker App</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <section class="text-gray-600 body-font">
+        <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+          <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+            <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Live CORONA Status <br class="hidden lg:inline-block">in INDIA.
+            </h1>
+            <p class="mb-8 leading-relaxed">The entire world including India is hit hard by the terror of Corona. So, here is a live COVID-19 tracker which will help you to know the exact status of COVID-19 statistics and data in our country.</p>
+            
+          </div>
+          <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+            <img class="object-cover object-center rounded" alt="hero" src="/img.png" style="height: 600px width: 700px;">
+          </div>
+        </div>
+      </section>
+
+      <section class="text-gray-600 body-font" data-aos="fade-up" id="nationalData">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex flex-wrap -m-4 text-center">
+            <div class="p-4 sm:w-1/4 w-1/2">
+              <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900" id="natTotal">{{total}}</h2>
+              <p class="leading-relaxed">Total Cases</p>
+            </div>
+            <div class="p-4 sm:w-1/4 w-1/2">
+              <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900" style="color: rgb(240, 114, 11);">{{totalActive}}</h2>
+              <p class="leading-relaxed">Active Cases</p>
+            </div>
+            <div class="p-4 sm:w-1/4 w-1/2">
+              <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900"  style="color: rgb(13, 218, 13);">{{totalRecovered}}</h2>
+              <p class="leading-relaxed">Total Recovered</p>
+            </div>
+            <div class="p-4 sm:w-1/4 w-1/2">
+              <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900" style="color: red;">{{totalDeaths}}</h2>
+              <p class="leading-relaxed">Total Deaths</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="text-gray-600 body-font">
+  <div class="container flex flex-wrap px-5 py-24 mx-auto items-center">
+    <div class="md:w-1/2 md:pr-12 md:py-8 md:border-r md:border-b-0 mb-10 md:mb-0 pb-10 border-b border-gray-200">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">COVID-19 State-Wise statistics</h1>
+      
+    </div>
+    </div>
+  </div>
+</section>
+
+     <label for="states">Choose your state: <br></label>
+    <div class="flex-auto justify-items-start">
+      
+<form action="/" method="post">
+<select name="states" id="states" style="m">
+  <option selected="true" disabled="disabled">Choose States</option>
+  <option value="0">Andaman and Nicobar</option>
+  <option value="1">Andhra Pradesh</option>
+  <option value="2">Arunanchal Pradesh</option>
+  <option value="3">Assam</option>
+  <option value="4">Bihar</option>
+  <option value="5">Chandigarh</option>
+  <option value="6">Chhatisgarh</option>
+  <option value="7">Dadra-Nagar Haveli and Daman-Diu</option>
+  <option value="8">Delhi</option>
+  <option value="9">Goa</option>
+  <option value="10">Gujarat</option>
+  <option value="11">Haryana</option>
+  <option value="12">Himachal Pradesh</option>
+  <option value="13">Jammu and Kashmir</option>
+  <option value="14">Jharkhand</option>
+  <option value="15">Karnataka</option>
+  <option value="16">Kerala</option>
+  <option value="17">Ladakh</option>
+  <option value="18">Lakshadweep</option>
+  <option value="19">Madhya Pradesh</option>
+  <option value="20">Maharashtra</option>
+  <option value="21">Manipur</option>
+  <option value="22">Meghalaya</option>
+  <option value="23">Mizoram</option>
+  <option value="24">Nagaland</option>
+  <option value="25">Odisha</option>
+  <option value="26">Puducherry</option>
+  <option value="27">Punjab</option>
+  <option value="28">Rajasthan</option>
+  <option value="29">Sikkim</option>
+  <option value="30">TamilNadu</option>
+  <option value="31">Telangana</option>
+  <option value="32">Tripura</option>
+  <option value="33">Uttarakhand</option>
+  <option value="34">Uttar Pradesh</option>
+  <option value="35">West Bengal</option>
+</select> 
+
+<button type="submit" id="submit">Search</button>
+</form>
+</div>
+
+<section class="text-gray-600 body-font">
+  <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+    <div class="text-center lg:w-2/3 w-full">
+      <h1 class="title-font sm:text-4xl text-3xl mb-0 font-medium text-gray-900" id="stateData">{{state}}</h1>
+    </div>
+  </div>
+</section>
+
+ <section class="text-gray-600 body-font m-0" data-aos="fade-up">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex flex-wrap -m-4 text-center">
+            <div class="p-4 sm:w-1/4 w-1/2">
+              <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900" id="natTotal">{{totalState}}</h2>
+              <p class="leading-relaxed">Total Cases</p>
+            </div>
+            <div class="p-4 sm:w-1/4 w-1/2">
+              <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900" style="color: rgb(240, 114, 11);">{{totalStateActive}}</h2>
+              <p class="leading-relaxed">Active Cases</p>
+            </div>
+            <div class="p-4 sm:w-1/4 w-1/2">
+              <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900"  style="color: rgb(13, 218, 13);">{{totalStateRecovered}}</h2>
+              <p class="leading-relaxed">Total Recovered</p>
+            </div>
+            <div class="p-4 sm:w-1/4 w-1/2">
+              <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900" style="color: red;">{{totalStateDeaths}}</h2>
+              <p class="leading-relaxed">Total Deaths</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <footer class="text-gray-600 body-font">
+  <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+    <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+      <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+        </svg>
+        <span class="ml-3 text-xl">COVID-19 Live Data</span>
+      </a>
+      <p class="mt-2 text-sm text-gray-500">A portal for live data and statistics of COVID-19 for INDIA.</p>
+    </div>
+    <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Quick links</h2>
+        <nav class="list-none mb-10">
+          <li>
+            <a class="text-gray-600 hover:text-gray-800" href="#nationalData">Nation-Wise Data</a>
+          </li>
+          <li>
+            <a class="text-gray-600 hover:text-gray-800" href="#stateData">State-Wise Data</a>
+          </li>
+
+        </nav>
+      </div>
+      
+    </div>
+  </div>
+  <div class="bg-gray-100">
+    <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+      <p class="text-gray-500 text-sm text-center sm:text-left">© 2020  COVID-19 Live Data  —
+        <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@Yash Raj</a>
+      </p>
+     
+    </div>
+  </div>
+</footer>
+
+    {{!-- <script src="/index.js"></script> --}}
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js">
+    </script>
+      <script>
+        AOS.init({
+          duration: 1300, 
+        });
+      </script> 
+    
+</body>
+</html>
